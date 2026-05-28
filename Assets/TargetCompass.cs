@@ -35,7 +35,7 @@ public class TargetCompass : MonoBehaviour
         arrowUI.rotation =
             Quaternion.Euler(0, 0, -angle + player.eulerAngles.y);
 
-        // Vérifie si touchée
+        // Vérifie si touchée 
         bool state = currentTarget.GetComponent<MeshRenderer>().sharedMaterial == vert_hit;
 
         if (state == true)
@@ -44,6 +44,7 @@ public class TargetCompass : MonoBehaviour
         }
     }
 
+    // Sélectionne la cible la plus proche du joueur
     void SelectNewTarget()
     {
         float minDistance = Mathf.Infinity;
@@ -54,7 +55,7 @@ public class TargetCompass : MonoBehaviour
         {
             bool state = target.GetComponent<MeshRenderer>().sharedMaterial == vert_hit;
 
-            // Ignore touchées
+            // Ignore les cibles touchées
             if (state == true)
                 continue;
 

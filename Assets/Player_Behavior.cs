@@ -17,6 +17,7 @@ public class Player_Behavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Initialisation du jeu dans le menu de démarrage
         path.SetActive(false);
         arrowUI.gameObject.SetActive(false);
         hud.gameObject.SetActive(false);
@@ -30,12 +31,14 @@ public class Player_Behavior : MonoBehaviour
         timer += Time.deltaTime;
         timerText.text = "Time: " + timer.ToString("F2");
 
+        // Vérifie si le jeu est terminé et que toutes les cibles ont été trouvées
         if ( !isGameEnded && interactManager.target_hit >= 5)
         {
             ShowEndMenu();
         }
     }
 
+    // Démarre le jeu en mode sans aide
     public void StartGame_mode1()
     {
         isGameStarted = true;
@@ -52,6 +55,8 @@ public class Player_Behavior : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    // Démarre le jeu en mode avec boussole
     public void StartGame_mode2()
     {
         isGameStarted = true;
@@ -68,6 +73,8 @@ public class Player_Behavior : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    // Démarre le jeu en mode avec chemin
     public void StartGame_mode3()
     {
         isGameStarted = true;
